@@ -110,7 +110,7 @@
     NAVBAR
   ============================================================ -->
   <header class="navbar" role="banner">
-    <a href="/" class="navbar-logo" aria-label="Checken – hem">
+    <a href="index.html" class="navbar-logo" aria-label="Checken – hem">
       <!-- Logotyp SVG inlines för bästa prestanda och SEO -->
       <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <!-- Vänster öga -->
@@ -136,7 +136,11 @@
         <li><a href="pages/kontakt.html">Kontakt</a></li>
       </ul>
     </nav>
-    <button class="nav-mobile-toggle" aria-label="Öppna meny" onclick="toggleMobileNav()">☰</button>
+    <button class="nav-mobile-toggle" aria-label="Öppna meny" aria-expanded="false" onclick="toggleMobileNav(this)">
+      <span class="bar bar-top"></span>
+      <span class="bar bar-mid"></span>
+      <span class="bar bar-bot"></span>
+    </button>
   </header>
 
   <main>
@@ -160,7 +164,7 @@
       <div class="hero-content">
         <p class="hero-eyebrow">Sveriges enda flirtkort</p>
         <h1>Jag har checkat<br/>in dig.</h1>
-        <p class="hero-sub">Precis som när man var liten och skickade chans-lapp — fast bättre.</p>
+        <p class="hero-sub">Precis som när man var liten och frågade chans med en lapp - fast bättre.</p>
         <a href="#kop" class="btn-primary">Köp din check</a>
       </div>
       <!-- Dekorativ perforationslinje längst ner -->
@@ -261,7 +265,7 @@
         <div class="about-text">
           <h2 id="about-title">Bakom checken</h2>
           <!-- ÄNDRA: Er historia -->
-          <p>Vi är två tjejer som tröttnade på att scrolla förbi människor vi faktiskt ville träffa på riktigt.</p>
+          <p>Vi är två donnor som tröttnade på att scrolla förbi människor vi faktiskt ville träffa på riktigt.</p>
           <p>Checken föddes ur en enkel tanke: vad om man kunde ge någon en lapp — precis som man gjorde som barn — men lite snyggare och lite modigare?</p>
           <p>Nu är vi Sveriges enda flirtkort. Och vi hoppas att du törs använda det.</p>
           <!-- ÄNDRA: Grundarnamn -->
@@ -314,7 +318,7 @@
     <div class="footer-inner container">
       <div class="footer-brand">
         <span class="footer-logo">CHECKEN</span>
-        <p>Sveriges enda flirtkort.<br/>Riva av. Lämna. Törs du?</p>
+        <p>Sveriges enda flirtkort.<br/>Riv av &amp; lämna. Enkelt.</p>
       </div>
       <nav class="footer-links" aria-label="Sidfotslänkar">
         <ul>

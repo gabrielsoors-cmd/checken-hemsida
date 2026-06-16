@@ -33,13 +33,25 @@ function declineCookies() {
 })();
 
 /* --- Mobil-nav toggle --- */
-function toggleMobileNav() {
+function toggleMobileNav(btn) {
+  const nav = document.querySelector('.navbar nav');
+  const isOpen = nav.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen);
+  btn.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
+}
+
+/* Stäng meny om man klickar utanför */
+document.addEventListener('click', function(e) {
   const nav = document.querySelector('.navbar nav');
   const toggle = document.querySelector('.nav-mobile-toggle');
-  const isOpen = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', isOpen);
-  toggle.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
-}
+  if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+    nav.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Öppna meny');
+  }
+});
 
 /* --- Scroll-animation med IntersectionObserver --- */
 const fadeEls = document.querySelectorAll('.step, .about-inner, .gallery-grid figure, .placeholder-card, .cta-section');
