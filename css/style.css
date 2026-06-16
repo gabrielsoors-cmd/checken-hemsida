@@ -1,36 +1,46 @@
 /* ================================================================
-   CHECKEN — STYLESHEET v3
-   Grafisk profil: MinervaModern + Courier Prime
-   Färger: Djupröd #7a2d25, Svart #231f20, Cream #f8f4ed
+   CHECKEN — STYLESHEET v4
+   Färgstrategi:
+   - Hero:          Mörk overlay → vit text (foto + kontrast)
+   - Sektioner:     Cream #f8f4ed bakgrund, mörkbrun #231f20 text
+   - Accent:        Röd #7a2d25 för knappar, eyebrows, ikoner
+   - CTA:           Röd bakgrund, cream text
+   - Footer:        Mörkbrun bakgrund, cream text (ankare längst ner)
    ================================================================ */
 
 /* ----------------------------------------------------------------
    VARUMÄRKESFÄRGER — ÄNDRA HÄR
    ---------------------------------------------------------------- */
 :root {
-  --color-bg:           #f8f4ed;   /* Varumärkets cream — nu bakgrund */
-  --color-surface:      #efe9e0;   /* Lite mörkare cream för sektioner */
-  --color-surface-2:    #e6dfd5;   /* Ännu mörkare cream för kort/ytor */
-  --color-red:          #7a2d25;   /* Varumärkets röd — primär accentfärg */
-  --color-red-dark:     #5e1f19;   /* Mörkare röd för hover */
-  --color-cream:        #231f20;   /* Varumärkets svart — nu primär textfärg */
-  --color-cream-muted:  #6b6560;   /* Dämpad mörkbrun för undertexter */
+  /* Bakgrunder */
+  --color-bg:           #f8f4ed;   /* Cream — sidans huvudbakgrund */
+  --color-surface:      #f0ebe2;   /* Lite mörkare cream för sektioner */
+  --color-dark:         #231f20;   /* Mörkbrun — footer + hero overlay */
+  --color-dark-2:       #1a1718;   /* Ännu mörkare för footer-botten */
+
+  /* Varumärkesfärger */
+  --color-red:          #7a2d25;   /* Röd — knappar, accenter, CTA */
+  --color-red-hover:    #5e1f19;   /* Mörkare röd för hover */
+
+  /* Text */
+  --color-text:         #231f20;   /* Primär text (på cream bg) */
+  --color-text-muted:   #7a7370;   /* Sekundär text */
+  --color-text-light:   #f8f4ed;   /* Text på mörk bakgrund */
+  --color-text-light-muted: #b5afa6; /* Sekundär text på mörk bakgrund */
 
   /* Typsnitt */
-  --font-display: 'MinervaModern', Georgia, serif;   /* Rubriker */
-  --font-body:    'CourierPrime', 'Courier New', monospace; /* Brödtext */
+  --font-display: 'MinervaModern', Georgia, serif;
+  --font-body:    'CourierPrime', 'Courier New', monospace;
 
   /* Storlekar */
   --text-xs:   0.75rem;
   --text-sm:   0.875rem;
   --text-base: 1rem;
   --text-lg:   1.125rem;
-  --text-xl:   1.25rem;
   --text-2xl:  1.5rem;
   --text-3xl:  2rem;
   --text-4xl:  2.75rem;
   --text-5xl:  3.75rem;
-  --text-6xl:  5rem;
 
   /* Mellanrum */
   --space-xs:  0.5rem;
@@ -45,31 +55,27 @@
 }
 
 /* ================================================================
-   TYPSNITTS-IMPORT (lokala filer)
+   TYPSNITTS-IMPORT
    ================================================================ */
 @font-face {
   font-family: 'MinervaModern';
   src: url('../fonts/MinervaModern_Regular.otf') format('opentype');
-  font-weight: 400;
-  font-display: swap;
+  font-weight: 400; font-display: swap;
 }
 @font-face {
   font-family: 'MinervaModern';
   src: url('../fonts/MinervaModern_Bold.otf') format('opentype');
-  font-weight: 700;
-  font-display: swap;
+  font-weight: 700; font-display: swap;
 }
 @font-face {
   font-family: 'CourierPrime';
   src: url('../fonts/CourierPrime-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
+  font-weight: 400; font-display: swap;
 }
 @font-face {
   font-family: 'CourierPrime';
   src: url('../fonts/CourierPrime-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
+  font-weight: 700; font-display: swap;
 }
 
 /* ================================================================
@@ -79,7 +85,7 @@
 html { scroll-behavior: smooth; }
 body {
   background-color: var(--color-bg);
-  color: var(--color-cream);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.75;
@@ -88,7 +94,7 @@ body {
 img { display: block; max-width: 100%; height: auto; }
 a { color: var(--color-red); text-decoration: none; transition: opacity var(--ease); }
 a:hover { opacity: 0.75; }
-a:focus-visible { outline: 2px solid var(--color-red); outline-offset: 3px; border-radius: 2px; }
+a:focus-visible { outline: 2px solid var(--color-red); outline-offset: 3px; }
 ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -97,37 +103,29 @@ ul { list-style: none; }
 /* ================================================================
    LAYOUT
    ================================================================ */
-.container {
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--space-md);
-}
+.container { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--space-md); }
 
 /* ================================================================
-   PERFORATIONSLINJE — SIGNATURELEMENT
+   PERFORATIONSLINJE
    ================================================================ */
 .perforation {
-  width: 100%;
-  height: 1px;
+  width: 100%; height: 1px;
   background: repeating-linear-gradient(
-    to right,
-    var(--color-cream-muted) 0px,
-    var(--color-cream-muted) 6px,
-    transparent 6px,
-    transparent 14px
+    to right, rgba(35,31,32,0.2) 0px, rgba(35,31,32,0.2) 6px, transparent 6px, transparent 14px
   );
-  opacity: 0.2;
   margin-block: var(--space-md);
 }
 .perforation--red {
   background: repeating-linear-gradient(
-    to right,
-    var(--color-red) 0px,
-    var(--color-red) 6px,
-    transparent 6px,
-    transparent 14px
+    to right, var(--color-red) 0px, var(--color-red) 6px, transparent 6px, transparent 14px
   );
-  opacity: 0.5;
+  opacity: 0.4;
+}
+/* Perforering på mörk bakgrund (hero/footer) */
+.perforation--light {
+  background: repeating-linear-gradient(
+    to right, rgba(248,244,237,0.25) 0px, rgba(248,244,237,0.25) 6px, transparent 6px, transparent 14px
+  );
 }
 
 /* ================================================================
@@ -136,7 +134,7 @@ ul { list-style: none; }
 .btn-primary {
   display: inline-block;
   background-color: var(--color-red);
-  color: var(--color-cream);
+  color: var(--color-text-light);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 700;
@@ -144,7 +142,6 @@ ul { list-style: none; }
   text-transform: uppercase;
   padding: 1rem 2.75rem;
   border: 2px solid var(--color-red);
-  border-radius: 0;
   transition: background-color var(--ease), color var(--ease), transform var(--ease);
   cursor: pointer;
 }
@@ -154,103 +151,85 @@ ul { list-style: none; }
   opacity: 1;
   transform: translateY(-1px);
 }
+/* Knapp på röd bakgrund (CTA-sektionen) */
+.btn-primary--light {
+  background-color: var(--color-text-light);
+  color: var(--color-red);
+  border-color: var(--color-text-light);
+}
+.btn-primary--light:hover {
+  background-color: transparent;
+  color: var(--color-text-light);
+}
 .btn-ghost {
   display: inline-block;
   background: transparent;
-  color: var(--color-cream-muted);
+  color: var(--color-text-muted);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 1rem 2.75rem;
-  border: 1px solid rgba(248,244,237,0.2);
-  border-radius: 0;
+  border: 1px solid rgba(35,31,32,0.25);
   transition: border-color var(--ease), color var(--ease);
 }
-.btn-ghost:hover {
-  border-color: var(--color-cream);
-  color: var(--color-cream);
-  opacity: 1;
-}
+.btn-ghost:hover { border-color: var(--color-text); color: var(--color-text); opacity: 1; }
 
 /* ================================================================
    COOKIE-BANNER
    ================================================================ */
 #cookie-banner {
-  position: fixed;
-  bottom: var(--space-md);
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(90vw, 620px);
-  background: var(--color-cream);
-  border: 1px solid rgba(35,31,32,0.15);
+  position: fixed; bottom: var(--space-md); left: 50%;
+  transform: translateX(-50%); width: min(90vw, 620px);
+  background: var(--color-dark);
+  border: 1px solid rgba(248,244,237,0.1);
   padding: var(--space-sm) var(--space-md);
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-  z-index: 9999;
-  box-shadow: 0 8px 40px rgba(35,31,32,0.15);
-  font-size: var(--text-sm);
-  color: var(--color-cream-muted);
+  display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap;
+  z-index: 9999; box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  font-size: var(--text-sm); color: var(--color-text-light-muted);
   font-family: var(--font-body);
 }
 #cookie-banner p { flex: 1; min-width: 200px; }
+#cookie-banner a { color: var(--color-text-light-muted); text-decoration: underline; }
 .cookie-actions { display: flex; gap: var(--space-xs); flex-shrink: 0; }
 #cookie-accept {
-  background: var(--color-red); color: var(--color-cream);
+  background: var(--color-red); color: var(--color-text-light);
   font-weight: 700; padding: 0.5rem 1.25rem; border: none;
   cursor: pointer; font-size: var(--text-sm); font-family: var(--font-body);
   letter-spacing: 0.05em; transition: opacity var(--ease);
 }
 #cookie-accept:hover { opacity: 0.85; }
 #cookie-decline {
-  background: transparent; color: var(--color-cream-muted);
-  padding: 0.5rem 1.25rem; border: 1px solid rgba(35,31,32,0.2);
+  background: transparent; color: var(--color-text-light-muted);
+  padding: 0.5rem 1.25rem; border: 1px solid rgba(248,244,237,0.2);
   cursor: pointer; font-size: var(--text-sm); font-family: var(--font-body);
   transition: border-color var(--ease);
 }
-#cookie-decline:hover { border-color: var(--color-cream); }
+#cookie-decline:hover { border-color: var(--color-text-light-muted); }
 #cookie-banner.hidden { display: none; }
 
 /* ================================================================
-   NAVBAR
+   NAVBAR — Cream bakgrund, svart text, röd hover
    ================================================================ */
 .navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 1.25rem var(--space-md);
-  background: rgba(248, 244, 237, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(248, 244, 237, 0.95);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(35,31,32,0.08);
   transition: background var(--ease);
 }
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-}
-.navbar-logo img {
-  height: 28px;
-  width: auto;
-}
+.navbar-logo { display: flex; align-items: center; text-decoration: none; }
+.navbar-logo img { height: 30px; width: auto; }
 .navbar nav ul { display: flex; gap: 2.5rem; }
 .navbar nav a {
-  color: var(--color-cream-muted);
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-body); font-size: var(--text-xs);
+  letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
   transition: color var(--ease);
 }
-.navbar nav a:hover { color: var(--color-cream); }
+.navbar nav a:hover { color: var(--color-text); }
 .navbar nav a[aria-current="page"] { color: var(--color-red); }
 
 /* Hamburger */
@@ -261,7 +240,7 @@ ul { list-style: none; }
 }
 .bar {
   display: block; width: 22px; height: 1.5px;
-  background: var(--color-cream); border-radius: 0;
+  background: var(--color-text);
   transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), opacity 0.25s ease, width 0.3s ease;
   transform-origin: center;
 }
@@ -270,240 +249,168 @@ ul { list-style: none; }
 .nav-mobile-toggle.open .bar-bot { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ================================================================
-   HERO
+   HERO — Mörk overlay, vit text
    ================================================================ */
 .hero {
-  position: relative;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  overflow: hidden;
+  position: relative; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
 }
-.hero-image-wrap {
-  position: absolute; inset: 0; z-index: 0;
-}
+.hero-image-wrap { position: absolute; inset: 0; z-index: 0; }
 .hero-image-wrap img {
   width: 100%; height: 100%;
   object-fit: cover; object-position: center top;
-  filter: brightness(0.4) saturate(0.7);
+  filter: brightness(0.45) saturate(0.75);
 }
 .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(35,31,32,0.25) 0%,
-    rgba(35,31,32,0.5) 50%,
-    rgba(248,244,237,0.97) 100%
+    rgba(35,31,32,0.1) 0%,
+    rgba(35,31,32,0.5) 55%,
+    rgba(35,31,32,0.92) 100%
   );
 }
 .hero-content {
   position: relative; z-index: 1;
-  max-width: var(--container-max);
-  margin-inline: auto;
+  max-width: var(--container-max); margin-inline: auto;
   padding: var(--space-2xl) var(--space-md) var(--space-xl);
   width: 100%;
 }
 .hero-eyebrow {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--color-red);
-  margin-bottom: var(--space-sm);
+  font-family: var(--font-body); font-size: var(--text-xs);
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--color-red); margin-bottom: var(--space-sm);
 }
 .hero h1 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  line-height: 1.0;
-  color: #231f20;
-  margin-bottom: var(--space-sm);
-  letter-spacing: -0.01em;
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.0;
+  color: var(--color-text-light);  /* VIT TEXT mot mörk overlay */
+  margin-bottom: var(--space-sm); letter-spacing: -0.01em;
 }
 .hero-sub {
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  color: #5a5450;
-  max-width: 440px;
-  margin-bottom: var(--space-md);
-  line-height: 1.7;
-  letter-spacing: 0.02em;
+  font-family: var(--font-body); font-size: var(--text-base);
+  color: var(--color-text-light-muted);  /* Dämpad vit */
+  max-width: 440px; margin-bottom: var(--space-md);
+  line-height: 1.7; letter-spacing: 0.02em;
 }
 
 /* ================================================================
-   SECTION HEADERS
+   SEKTIONSRUBRIKER — Mörkbrun text på cream
    ================================================================ */
 .section-eyebrow {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-red);
-  margin-bottom: var(--space-xs);
+  font-family: var(--font-body); font-size: var(--text-xs);
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--color-red); margin-bottom: var(--space-xs);
 }
 h2.display {
-  font-family: var(--font-display);
-  font-weight: 400;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-  color: var(--color-cream);
-  line-height: 1.05;
-  margin-bottom: var(--space-xs);
-  letter-spacing: -0.01em;
+  color: var(--color-text); line-height: 1.05;
+  margin-bottom: var(--space-xs); letter-spacing: -0.01em;
 }
 .section-sub {
-  color: var(--color-cream-muted);
-  font-size: var(--text-base);
-  font-family: var(--font-body);
-  margin-bottom: var(--space-lg);
+  color: var(--color-text-muted); font-size: var(--text-base);
+  font-family: var(--font-body); margin-bottom: var(--space-lg);
   letter-spacing: 0.02em;
 }
 
 /* ================================================================
-   HOW IT WORKS
+   HUR DET FUNKAR — Cream bakgrund
    ================================================================ */
-.how-it-works { padding-block: var(--space-xl); }
+.how-it-works { padding-block: var(--space-xl); background: var(--color-bg); }
 .steps { display: flex; flex-direction: column; }
 .step {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-  align-items: center;
-  padding-block: var(--space-lg);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl); align-items: center; padding-block: var(--space-lg);
 }
 .step-reverse { direction: rtl; }
 .step-reverse > * { direction: ltr; }
-.step-img { position: relative; }
 .step-img img {
-  width: 100%; max-height: 520px;
-  object-fit: cover;
-  filter: saturate(0.6) brightness(0.85);
+  width: 100%; max-height: 520px; object-fit: cover;
+  filter: saturate(0.7) brightness(0.9);
   transition: filter 0.5s ease;
 }
-.step-img:hover img { filter: saturate(0.85) brightness(1); }
+.step-img:hover img { filter: saturate(1) brightness(1); }
 .step-number {
-  font-family: var(--font-display);
-  font-size: 7rem;
-  color: rgba(248,244,237,0.04);
-  display: block;
-  line-height: 1;
-  margin-bottom: -1.5rem;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display); font-size: 7rem;
+  color: rgba(35,31,32,0.05); display: block;
+  line-height: 1; margin-bottom: -1.5rem; letter-spacing: -0.02em;
 }
 .step-text h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: var(--text-2xl);
-  color: var(--color-cream);
-  margin-bottom: var(--space-xs);
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--text-2xl); color: var(--color-text); margin-bottom: var(--space-xs);
 }
-.step-text p {
-  color: var(--color-cream-muted);
-  font-size: var(--text-base);
-  line-height: 1.8;
-}
+.step-text p { color: var(--color-text-muted); font-size: var(--text-base); line-height: 1.8; }
 
 /* ================================================================
-   SHOP
+   SHOP — Lite mörkare cream, mörkbrun text
    ================================================================ */
 .shop {
   padding-block: var(--space-xl);
   background: var(--color-surface);
-  border-top: 1px solid rgba(35,31,32,0.07);
-  border-bottom: 1px solid rgba(35,31,32,0.07);
+  border-top: 1px solid rgba(35,31,32,0.08);
+  border-bottom: 1px solid rgba(35,31,32,0.08);
 }
 .shop-placeholder { display: flex; justify-content: center; padding-top: var(--space-md); }
 .placeholder-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 820px;
-  width: 100%;
-  border: 1px solid rgba(35,31,32,0.1);
+  display: grid; grid-template-columns: 1fr 1fr;
+  max-width: 820px; width: 100%;
+  border: 1px solid rgba(35,31,32,0.12);
+  background: var(--color-bg);
 }
 .placeholder-card img {
-  width: 100%; height: 420px;
-  object-fit: cover;
-  filter: saturate(0.65) brightness(0.85);
+  width: 100%; height: 420px; object-fit: cover;
+  filter: saturate(0.7) brightness(0.9);
 }
 .placeholder-info {
   padding: var(--space-lg) var(--space-md);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-sm);
+  display: flex; flex-direction: column; justify-content: center; gap: var(--space-sm);
 }
 .placeholder-info h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: var(--text-2xl);
-  color: var(--color-cream);
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--text-2xl); color: var(--color-text);
 }
-.placeholder-info p { color: var(--color-cream-muted); font-size: var(--text-sm); line-height: 1.8; }
+.placeholder-info p { color: var(--color-text-muted); font-size: var(--text-sm); line-height: 1.8; }
 .price {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl) !important;
-  color: var(--color-cream) !important;
-  font-weight: 400;
+  font-family: var(--font-display); font-size: var(--text-3xl) !important;
+  color: var(--color-text) !important; font-weight: 400;
 }
 .shop-note {
-  font-size: var(--text-xs) !important;
-  color: rgba(35,31,32,0.25) !important;
-  border: 1px dashed rgba(35,31,32,0.15);
-  padding: 0.5rem 0.75rem;
-  line-height: 1.6;
+  font-size: var(--text-xs) !important; color: rgba(35,31,32,0.25) !important;
+  border: 1px dashed rgba(35,31,32,0.15); padding: 0.5rem 0.75rem; line-height: 1.6;
 }
 
 /* ================================================================
-   OM OSS
+   OM OSS — Cream bakgrund
    ================================================================ */
-.about { padding-block: var(--space-xl); }
+.about { padding-block: var(--space-xl); background: var(--color-bg); }
 .about-inner {
-  display: grid;
-  grid-template-columns: 5fr 6fr;
-  gap: var(--space-xl);
-  align-items: center;
+  display: grid; grid-template-columns: 5fr 6fr;
+  gap: var(--space-xl); align-items: center;
 }
 .about-img img {
   width: 100%; max-height: 640px;
   object-fit: cover; object-position: top;
-  filter: saturate(0.55) brightness(0.85);
+  filter: saturate(0.6) brightness(0.92);
 }
-.about-text p {
-  color: var(--color-cream-muted);
-  margin-bottom: var(--space-sm);
-  font-size: var(--text-base);
-  line-height: 1.9;
-}
-.founders {
-  color: var(--color-red) !important;
-  font-size: var(--text-sm) !important;
-  letter-spacing: 0.05em;
-  margin-top: var(--space-md) !important;
-}
+.about-text p { color: var(--color-text-muted); margin-bottom: var(--space-sm); font-size: var(--text-base); line-height: 1.9; }
+.founders { color: var(--color-red) !important; font-size: var(--text-sm) !important; letter-spacing: 0.05em; margin-top: var(--space-md) !important; }
 
 /* ================================================================
    BILDGALLERI
    ================================================================ */
-.gallery { padding-block: var(--space-lg); }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
+.gallery { padding-block: var(--space-lg); background: var(--color-surface); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 .gallery-grid figure { overflow: hidden; aspect-ratio: 3/4; }
 .gallery-grid img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: saturate(0.5) brightness(0.8);
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0.55) brightness(0.85);
   transition: filter 0.5s ease, transform 0.5s ease;
 }
-.gallery-grid figure:hover img {
-  filter: saturate(0.85) brightness(1);
-  transform: scale(1.03);
-}
+.gallery-grid figure:hover img { filter: saturate(0.9) brightness(1); transform: scale(1.03); }
 
 /* ================================================================
-   CTA
+   CTA — Röd bakgrund, cream text
    ================================================================ */
 .cta-section {
   padding-block: var(--space-xl);
@@ -511,65 +418,46 @@ h2.display {
   text-align: center;
 }
 .cta-section h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
+  font-family: var(--font-display); font-weight: 400;
   font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-  color: var(--color-cream);
-  margin-bottom: var(--space-sm);
-  letter-spacing: -0.01em;
+  color: var(--color-text-light); margin-bottom: var(--space-sm); letter-spacing: -0.01em;
 }
 .cta-section p {
-  color: rgba(248,244,237,0.8);
-  font-size: var(--text-base);
-  max-width: 440px;
-  margin-inline: auto;
-  margin-bottom: var(--space-md);
-  line-height: 1.7;
-}
-.cta-section .btn-primary {
-  background: var(--color-cream);
-  color: var(--color-red);
-  border-color: var(--color-cream);
-}
-.cta-section .btn-primary:hover {
-  background: transparent;
-  color: var(--color-cream);
+  color: rgba(248,244,237,0.8); font-size: var(--text-base);
+  max-width: 440px; margin-inline: auto; margin-bottom: var(--space-md); line-height: 1.7;
 }
 
 /* ================================================================
-   FOOTER
+   FOOTER — Mörkbrun bakgrund, cream text (ankare)
    ================================================================ */
 footer {
-  background: var(--color-surface);
-  border-top: 1px solid rgba(35,31,32,0.08);
+  background: var(--color-dark);
   padding-top: var(--space-lg);
 }
 .footer-inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-lg);
-  padding-bottom: var(--space-lg);
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-lg); padding-bottom: var(--space-lg);
 }
 .footer-logo-img { height: 32px; width: auto; margin-bottom: var(--space-sm); }
-.footer-brand p { color: var(--color-cream-muted); font-size: var(--text-sm); line-height: 1.8; }
+.footer-brand p { color: var(--color-text-light-muted); font-size: var(--text-sm); line-height: 1.8; }
 .footer-links ul { display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-links a, .footer-social a {
-  color: var(--color-cream-muted);
-  font-size: var(--text-sm);
-  text-decoration: none;
-  letter-spacing: 0.03em;
-  transition: color var(--ease);
+.footer-links a {
+  color: var(--color-text-light-muted); font-size: var(--text-sm);
+  text-decoration: none; letter-spacing: 0.03em; transition: color var(--ease);
 }
-.footer-links a:hover { color: var(--color-cream); }
+.footer-links a:hover { color: var(--color-text-light); opacity: 1; }
 .footer-social { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-social a {
+  color: var(--color-text-light-muted); font-size: var(--text-sm);
+  text-decoration: none; transition: color var(--ease);
+}
 .footer-social a:hover { color: var(--color-red); opacity: 1; }
 .footer-bottom {
-  border-top: 1px solid rgba(35,31,32,0.08);
-  padding-block: var(--space-sm);
-  text-align: center;
+  border-top: 1px solid rgba(248,244,237,0.08);
+  padding-block: var(--space-sm); text-align: center;
 }
-.footer-bottom p { color: rgba(35,31,32,0.3); font-size: var(--text-xs); letter-spacing: 0.05em; }
-.footer-bottom a { color: rgba(35,31,32,0.4); }
+.footer-bottom p { color: rgba(248,244,237,0.25); font-size: var(--text-xs); letter-spacing: 0.05em; }
+.footer-bottom a { color: rgba(248,244,237,0.35); }
 
 /* ================================================================
    SCROLL-ANIMATION

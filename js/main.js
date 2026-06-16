@@ -68,12 +68,14 @@ const observer = new IntersectionObserver((entries) => {
 
 fadeEls.forEach(el => observer.observe(el));
 
-/* --- Navbar: mörkna vid scroll --- */
+/* --- Navbar: förstärk vid scroll --- */
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
     navbar.style.background = 'rgba(248, 244, 237, 0.98)';
+    navbar.style.boxShadow = '0 1px 12px rgba(35,31,32,0.08)';
   } else {
-    navbar.style.background = 'rgba(248, 244, 237, 0.94)';
+    navbar.style.background = 'rgba(248, 244, 237, 0.95)';
+    navbar.style.boxShadow = 'none';
   }
 }, { passive: true });
