@@ -72,8 +72,8 @@ fadeEls.forEach(el => observer.observe(el));
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
-    navbar.style.background = 'rgba(15, 9, 4, 0.97)';
+    navbar.style.background = 'rgba(248, 244, 237, 0.98)';
   } else {
-    navbar.style.background = 'rgba(26, 16, 8, 0.85)';
+    navbar.style.background = 'rgba(248, 244, 237, 0.94)';
   }
 }, { passive: true });
