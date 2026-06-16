@@ -36,7 +36,7 @@
     .contact-info a { color: var(--color-text-muted); }
     .contact-info a:hover { color: var(--color-accent); }
     .back-link { display: inline-block; margin-bottom: var(--space-md); color: var(--color-accent); font-size: var(--text-sm); }
-    .form-success { display: none; background: rgba(201,168,124,0.1); border: 1px solid var(--color-accent); border-radius: 4px; padding: var(--space-sm); color: var(--color-accent); margin-top: var(--space-sm); }
+    .mailto-note { font-size: var(--text-xs); color: rgba(245,240,232,0.3); margin-top: 0.5rem; }
     @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
   </style>
 
@@ -54,9 +54,9 @@
     <a href="../index.html" class="navbar-logo" aria-label="Checken – hem"><span>CHECKEN</span></a>
     <nav role="navigation" aria-label="Huvudnavigation">
       <ul>
-        <li><a href="/#hur-det-funkar">Hur det funkar</a></li>
-        <li><a href="/#kop">Köp</a></li>
-        <li><a href="/#om-oss">Om oss</a></li>
+        <li><a href="../index.html#hur-det-funkar">Hur det funkar</a></li>
+        <li><a href="../index.html#kop">Köp</a></li>
+        <li><a href="../index.html#om-oss">Om oss</a></li>
         <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
       </ul>
     </nav>
@@ -66,30 +66,28 @@
     <div class="container">
       <a href="../index.html" class="back-link">← Tillbaka</a>
       <h1>Säg hej!</h1>
-      <!-- ÄNDRA: Intro-text -->
       <p class="intro">Frågor om beställningar, samarbeten eller bara vill prata? Vi svarar så snabbt vi kan.</p>
 
       <div class="contact-grid">
-        <!-- Kontaktformulär — koppla till en tjänst som Formspree eller liknande -->
-        <!-- ÄNDRA: action-URL till er formulärtjänst, t.ex. https://formspree.io/f/XXXXXXX -->
-        <form class="contact-form" id="contact-form" action="#" method="POST" novalidate>
+
+        <!-- Formulär som bygger en mailto:-länk med ifylld info -->
+        <div class="contact-form">
           <div class="form-group">
             <label for="name">Ditt namn</label>
-            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Vad heter du?" />
+            <input type="text" id="name" placeholder="Vad heter du?" />
           </div>
           <div class="form-group">
-            <label for="email">E-post</label>
-            <input type="email" id="email" name="email" autocomplete="email" required placeholder="din@email.se" />
+            <label for="email">Din e-post</label>
+            <input type="email" id="email" placeholder="din@email.se" />
           </div>
           <div class="form-group">
             <label for="message">Meddelande</label>
-            <textarea id="message" name="message" required placeholder="Vad undrar du?"></textarea>
+            <textarea id="message" placeholder="Vad undrar du?"></textarea>
           </div>
-          <button type="submit" class="btn-primary">Skicka meddelande</button>
-          <div class="form-success" id="form-success" role="alert">
-            Tack för ditt meddelande! Vi återkommer snart.
-          </div>
-        </form>
+          <!-- Knappen bygger en mailto-länk och öppnar Outlook/mejlklient -->
+          <button type="button" class="btn-primary" onclick="skickaMejl()">Skicka meddelande</button>
+          <p class="mailto-note">Klicket öppnar din mejlklient (t.ex. Outlook) med meddelandet förifyllt.</p>
+        </div>
 
         <div class="contact-info">
           <h2>Direktkontakt</h2>
@@ -115,13 +113,28 @@
   </footer>
 
   <script>
-    /* Enkelt formulärskydd + feedback */
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      /* ÄNDRA: Om ni använder Formspree, ta bort e.preventDefault() och låt formuläret skickas */
-      document.getElementById('form-success').style.display = 'block';
-      this.reset();
-    });
+    function skickaMejl() {
+      const namn = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const meddelande = document.getElementById('message').value.trim();
+
+      if (!namn || !meddelande) {
+        alert('Fyll i ditt namn och meddelande innan du skickar.');
+        return;
+      }
+
+      const amne = encodeURIComponent('Meddelande från ' + namn + ' via checken.se');
+      const kropp = encodeURIComponent(
+        'Hej!\n\n' +
+        meddelande +
+        '\n\n---\n' +
+        'Skickat av: ' + namn +
+        (email ? '\nSvar till: ' + email : '')
+      );
+
+      // Öppnar Outlook / mejlklient med förifyllt innehåll
+      window.location.href = 'mailto:hej@checken.se?subject=' + amne + '&body=' + kropp;
+    }
   </script>
 </body>
 </html>
