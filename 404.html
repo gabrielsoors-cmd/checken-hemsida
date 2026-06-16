@@ -5,122 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sidan hittades inte – Checken</title>
   <meta name="robots" content="noindex, follow" />
-  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .error-page {
       min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       text-align: center;
       padding: var(--space-lg) var(--space-md);
-      padding-top: 100px;
+      padding-top: 120px;
     }
     .error-eyes {
-      display: flex;
-      gap: 1.5rem;
       margin-bottom: var(--space-md);
-      animation: blink 3s ease-in-out infinite;
+      animation: blink 3.5s ease-in-out infinite;
     }
     @keyframes blink {
-      0%, 90%, 100% { transform: scaleY(1); }
-      95% { transform: scaleY(0.1); }
+      0%, 88%, 100% { transform: scaleY(1); }
+      94% { transform: scaleY(0.08); }
     }
     .error-code {
       font-family: var(--font-display);
-      font-size: clamp(5rem, 20vw, 10rem);
-      color: rgba(245,240,232,0.06);
+      font-size: clamp(6rem, 20vw, 12rem);
+      color: rgba(248,244,237,0.04);
       line-height: 1;
-      margin-bottom: -1rem;
       display: block;
+      margin-bottom: -2rem;
+      letter-spacing: -0.02em;
     }
     .error-page h1 {
       font-family: var(--font-display);
+      font-weight: 400;
       font-size: clamp(var(--text-3xl), 6vw, var(--text-5xl));
-      color: var(--color-text);
+      color: var(--color-cream);
       margin-bottom: var(--space-sm);
       line-height: 1.1;
     }
     .error-page p {
-      color: var(--color-text-muted);
-      font-size: var(--text-lg);
-      max-width: 420px;
-      margin-bottom: var(--space-lg);
-    }
-    .error-links {
-      display: flex;
-      gap: var(--space-sm);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .btn-ghost {
-      display: inline-block;
-      border: 1px solid rgba(245,240,232,0.2);
-      color: var(--color-text-muted);
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
+      color: var(--color-cream-muted);
       font-size: var(--text-base);
-      transition: border-color 0.2s, color 0.2s;
+      max-width: 380px;
+      margin-bottom: var(--space-lg);
+      line-height: 1.8;
     }
-    .btn-ghost:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-      opacity: 1;
-    }
+    .error-links { display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center; }
   </style>
 </head>
 <body>
   <header class="navbar" role="banner">
     <a href="index.html" class="navbar-logo" aria-label="Checken – hem">
-      <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <ellipse cx="10" cy="12" rx="8" ry="6" stroke="#F5F0E8" stroke-width="1.5" fill="none"/>
-        <circle cx="10" cy="12" r="3" fill="#F5F0E8"/>
-        <line x1="5" y1="7" x2="7" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="10" y1="6" x2="10" y2="4" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="15" y1="7" x2="13" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-        <ellipse cx="30" cy="12" rx="8" ry="6" stroke="#F5F0E8" stroke-width="1.5" fill="none"/>
-        <circle cx="30" cy="12" r="3" fill="#F5F0E8"/>
-        <line x1="25" y1="7" x2="27" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="30" y1="6" x2="30" y2="4" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="35" y1="7" x2="33" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-      </svg>
-      <span>CHECKEN</span>
+      <img src="images/logo-rod.svg" alt="Checken" style="height:30px;width:auto" />
     </a>
   </header>
-
   <main>
     <div class="error-page">
-      <!-- Animerade ögon som blinkar — matchar logotypen -->
       <div class="error-eyes" aria-hidden="true">
-        <svg width="64" height="40" viewBox="0 0 64 40" fill="none">
-          <ellipse cx="32" cy="20" rx="30" ry="18" stroke="#C9A87C" stroke-width="2" fill="none"/>
-          <circle cx="32" cy="20" r="8" fill="#C9A87C"/>
-          <line x1="18" y1="6" x2="23" y2="2" stroke="#C9A87C" stroke-width="1.5"/>
-          <line x1="32" y1="2" x2="32" y2="0" stroke="#C9A87C" stroke-width="1.5"/>
-          <line x1="46" y1="6" x2="41" y2="2" stroke="#C9A87C" stroke-width="1.5"/>
-        </svg>
-        <svg width="64" height="40" viewBox="0 0 64 40" fill="none">
-          <ellipse cx="32" cy="20" rx="30" ry="18" stroke="#C9A87C" stroke-width="2" fill="none"/>
-          <circle cx="32" cy="20" r="8" fill="#C9A87C"/>
-          <line x1="18" y1="6" x2="23" y2="2" stroke="#C9A87C" stroke-width="1.5"/>
-          <line x1="32" y1="2" x2="32" y2="0" stroke="#C9A87C" stroke-width="1.5"/>
-          <line x1="46" y1="6" x2="41" y2="2" stroke="#C9A87C" stroke-width="1.5"/>
-        </svg>
+        <img src="images/ogon-rod.svg" alt="" style="height:48px;width:auto;opacity:0.7" />
       </div>
-
       <span class="error-code" aria-hidden="true">404</span>
       <h1>Den här sidan<br/>hittades inte.</h1>
       <p>Checken du letade efter verkar inte finnas — men kärleken gör det säkert.</p>
-
       <div class="error-links">
         <a href="index.html" class="btn-primary">Ta mig hem</a>
         <a href="pages/kontakt.html" class="btn-ghost">Kontakta oss</a>
       </div>
     </div>
   </main>
-
   <footer role="contentinfo">
     <div class="footer-bottom">
       <p>© <script>document.write(new Date().getFullYear())</script> Checken AB · <a href="pages/integritetspolicy.html">Integritetspolicy</a></p>

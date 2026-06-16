@@ -6,41 +6,36 @@
 
   <!-- ============================================================
     SEO — ÄNDRA HÄR
-    Uppdatera titel, beskrivning och URL när domänen är klar
   ============================================================ -->
-  <title>Checken – Flirta på riktigt | Köp din check idag</title>
+  <title>Checken – Flirta på riktigt | Sveriges enda flirtkort</title>
   <meta name="description" content="Checken är Sveriges enda flirtkort – en fysisk check du river av och lämnar till någon du är intresserad av. Precis som en kärlekslapp, fast bättre." />
   <meta name="keywords" content="checken, flirtkort, flirta, dejta, kärlek, present, rolig present, unik present, Sverige" />
   <meta name="author" content="Checken" />
   <link rel="canonical" href="https://www.checken.se/" />
 
-  <!-- Open Graph (Facebook, Instagram, LinkedIn) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.checken.se/" />
   <meta property="og:title" content="Checken – Flirta på riktigt" />
-  <meta property="og:description" content="Sveriges enda flirtkort. Riva av. Lämna. Checka in någon." />
+  <meta property="og:description" content="Sveriges enda flirtkort. Riv av. Lämna. Checka in någon." />
   <meta property="og:image" content="https://www.checken.se/images/og-image.jpg" />
   <meta property="og:locale" content="sv_SE" />
   <meta property="og:site_name" content="Checken" />
 
-  <!-- Twitter / X Card -->
+  <!-- Twitter/X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Checken – Flirta på riktigt" />
-  <meta name="twitter:description" content="Sveriges enda flirtkort. Riva av. Lämna. Checka in någon." />
+  <meta name="twitter:description" content="Sveriges enda flirtkort. Riv av. Lämna. Checka in någon." />
   <meta name="twitter:image" content="https://www.checken.se/images/og-image.jpg" />
-
-  <!-- Robots -->
   <meta name="robots" content="index, follow" />
 
-  <!-- Favicon — byt ut mot riktig favicon när logotypfil finns -->
+  <!-- Favicon: röd C-symbol -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.svg" />
 
   <!-- ============================================================
-    GOOGLE ANALYTICS — ÄNDRA HÄR
-    Byt ut G-XXXXXXXXXX mot ert riktiga Measurement ID från Google Analytics
+    GOOGLE ANALYTICS — ÄNDRA: Byt G-XXXXXXXXXX mot ert riktiga ID
   ============================================================ -->
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -49,41 +44,26 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
 
-  <!-- Google Fonts: Knewave (rubriker) + Lato (brödtext) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <!-- Strukturerad data (JSON-LD) för Google -->
+  <!-- Strukturerad data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Checken",
     "url": "https://www.checken.se",
-    "logo": "https://www.checken.se/images/logo.png",
+    "logo": "https://www.checken.se/images/logo-rod.svg",
     "description": "Sveriges enda flirtkort – checka in någon du är intresserad av.",
-    "sameAs": [
-      "https://www.instagram.com/checken.se"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "email": "hej@checken.se"
-    }
+    "sameAs": ["https://www.instagram.com/checken.se"],
+    "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "email": "hej@checken.se"}
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "Checken – Flirtkort",
     "description": "En fysisk check du river av och lämnar till någon du vill flirta med. Sveriges enda flirtkort.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Checken"
-    },
+    "brand": {"@type": "Brand", "name": "Checken"},
     "url": "https://www.checken.se",
     "image": "https://www.checken.se/images/checken-closeup-1.jpeg"
   }
@@ -91,42 +71,21 @@
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-  <!-- ============================================================
-    COOKIE-BANNER
-    Visas automatiskt första gången besökaren laddar sidan
-  ============================================================ -->
+  <!-- COOKIE-BANNER -->
   <div id="cookie-banner" role="dialog" aria-label="Cookiesamtycke" aria-live="polite">
-    <p>Vi använder cookies för att förbättra din upplevelse och analysera trafik via Google Analytics. <a href="pages/integritetspolicy.html">Läs vår integritetspolicy</a>.</p>
+    <p>Vi använder cookies för att förbättra din upplevelse och analysera trafik. <a href="pages/integritetspolicy.html">Läs vår integritetspolicy</a>.</p>
     <div class="cookie-actions">
-      <button id="cookie-accept" onclick="acceptCookies()">Acceptera alla</button>
+      <button id="cookie-accept" onclick="acceptCookies()">Acceptera</button>
       <button id="cookie-decline" onclick="declineCookies()">Endast nödvändiga</button>
     </div>
   </div>
 
-  <!-- ============================================================
-    NAVBAR
-  ============================================================ -->
+  <!-- NAVBAR -->
   <header class="navbar" role="banner">
-    <a href="index.html" class="navbar-logo" aria-label="Checken – hem">
-      <!-- Logotyp SVG inlines för bästa prestanda och SEO -->
-      <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- Vänster öga -->
-        <ellipse cx="10" cy="12" rx="8" ry="6" stroke="#F5F0E8" stroke-width="1.5" fill="none"/>
-        <circle cx="10" cy="12" r="3" fill="#F5F0E8"/>
-        <line x1="5" y1="7" x2="7" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="10" y1="6" x2="10" y2="4" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="15" y1="7" x2="13" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-        <!-- Höger öga -->
-        <ellipse cx="30" cy="12" rx="8" ry="6" stroke="#F5F0E8" stroke-width="1.5" fill="none"/>
-        <circle cx="30" cy="12" r="3" fill="#F5F0E8"/>
-        <line x1="25" y1="7" x2="27" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="30" y1="6" x2="30" y2="4" stroke="#F5F0E8" stroke-width="1"/>
-        <line x1="35" y1="7" x2="33" y2="5" stroke="#F5F0E8" stroke-width="1"/>
-      </svg>
-      <span>CHECKEN</span>
+    <a href="index.html" class="navbar-logo" aria-label="Checken – gå till startsidan">
+      <img src="images/logo-rod.svg" alt="Checken logotyp" class="navbar-logo-img" style="height:30px;width:auto" />
     </a>
     <nav role="navigation" aria-label="Huvudnavigation">
       <ul>
@@ -145,19 +104,14 @@
 
   <main>
 
-    <!-- ============================================================
-      HERO-SEKTION
-      ÄNDRA: Rubrik, undertext och bildväg
-    ============================================================ -->
+    <!-- HERO -->
     <section class="hero" id="hero" aria-label="Välkommen till Checken">
       <div class="hero-image-wrap">
         <img
           src="images/checken-in-action.jpeg"
-          alt="En person fyller i sin Checken-flirtkort vid ett bord med ett vinglas"
-          width="1200"
-          height="800"
-          loading="eager"
-          fetchpriority="high"
+          alt="En person fyller i ett Checken-flirtkort vid ett marmorbord med ett vinglas"
+          width="1200" height="800"
+          loading="eager" fetchpriority="high"
         />
         <div class="hero-overlay"></div>
       </div>
@@ -167,120 +121,108 @@
         <p class="hero-sub">Precis som när man var liten och frågade chans med en lapp - fast bättre.</p>
         <a href="#kop" class="btn-primary">Köp din check</a>
       </div>
-      <!-- Dekorativ perforationslinje längst ner -->
       <div class="perforation" aria-hidden="true"></div>
     </section>
 
-    <!-- ============================================================
-      HUR DET FUNKAR
-      ÄNDRA: Stegen och texterna nedan
-    ============================================================ -->
+    <!-- HUR DET FUNKAR -->
     <section class="how-it-works" id="hur-det-funkar" aria-labelledby="hiw-title">
       <div class="container">
-        <h2 id="hiw-title">Hur funkar det?</h2>
-        <p class="section-sub">Tre steg. Oändliga möjligheter.</p>
-        <div class="steps">
+        <p class="section-eyebrow">Så här funkar det</p>
+        <h2 class="display" id="hiw-title">Tre steg.<br/>Oändliga möjligheter.</h2>
 
-          <article class="step">
+        <div class="steps">
+          <article class="step fade-in">
             <div class="step-img">
-              <img src="images/checken-closeup-1.jpeg" alt="Närbild på ett Checken-flirtkort som hålls upp" width="400" height="500" loading="lazy"/>
+              <img src="images/checken-closeup-1.jpeg" alt="Närbild på ett Checken-flirtkort" width="600" height="750" loading="lazy"/>
             </div>
             <div class="step-text">
               <span class="step-number" aria-hidden="true">01</span>
               <h3>Du ser någon du gillar</h3>
-              <p>Det där leendet. Ögonkontakten. Du vet exakt vem vi pratar om.</p>
+              <p>Det där leendet. Ögonkontakten.<br/>Du vet exakt vem vi pratar om.</p>
             </div>
           </article>
 
           <div class="perforation" aria-hidden="true"></div>
 
-          <article class="step step-reverse">
+          <article class="step step-reverse fade-in">
             <div class="step-img">
-              <img src="images/checken-in-action.jpeg" alt="Händer som fyller i ett Checken-flirtkort" width="400" height="500" loading="lazy"/>
+              <img src="images/checken-in-action.jpeg" alt="Händer som fyller i ett Checken-flirtkort" width="600" height="750" loading="lazy"/>
             </div>
             <div class="step-text">
               <span class="step-number" aria-hidden="true">02</span>
               <h3>Du fyller i checken</h3>
-              <p>Skriv ditt namn, nummer — och välj hur du vill ha det. Djärvt eller diskret.</p>
+              <p>Skriv ditt namn och nummer.<br/>Välj hur du vill ha det — djärvt eller diskret.</p>
             </div>
           </article>
 
           <div class="perforation" aria-hidden="true"></div>
 
-          <article class="step">
+          <article class="step fade-in">
             <div class="step-img">
-              <img src="images/checken-closeup-hand.jpeg" alt="Hand lämnar över ett Checken-flirtkort" width="400" height="500" loading="lazy"/>
+              <img src="images/checken-closeup-hand.jpeg" alt="Hand lämnar över ett Checken-flirtkort" width="600" height="750" loading="lazy"/>
             </div>
             <div class="step-text">
               <span class="step-number" aria-hidden="true">03</span>
               <h3>Du lämnar den</h3>
-              <p>River av. Lämnar. Går därifrån med ett leende. Resten är upp till ödet.</p>
+              <p>River av. Lämnar. Går därifrån med ett leende.<br/>Resten är upp till ödet.</p>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-      SHOP-SEKTION (Kwikk-integration)
-      ÄNDRA: Klistra in er Kwikk-embed-kod inuti div#kwikk-embed
-    ============================================================ -->
+    <!-- SHOP -->
     <section class="shop" id="kop" aria-labelledby="shop-title">
-      <div class="perforation" aria-hidden="true"></div>
       <div class="container">
-        <h2 id="shop-title">Köp din check</h2>
+        <p class="section-eyebrow">Köp</p>
+        <h2 class="display" id="shop-title">Köp din check</h2>
         <p class="section-sub">Levereras snabbt. Används omedelbart.</p>
 
-        <!-- KWIKK PLACEHOLDER — ersätt innehållet i denna div med Kwikk embed-kod -->
+        <!-- KWIKK PLACEHOLDER — ersätt allt i div#kwikk-embed med Kwikk embed-kod -->
         <div id="kwikk-embed" aria-label="Webshop för Checken">
           <div class="shop-placeholder">
-            <div class="placeholder-card">
-              <img src="images/checken-closeup-kamera.jpeg" alt="Checken flirtkort bredvid en Instax-kamera" width="400" height="400" loading="lazy"/>
+            <div class="placeholder-card fade-in">
+              <img src="images/checken-closeup-kamera.jpeg" alt="Checken flirtkort bredvid en mintgrön Instax-kamera" width="400" height="420" loading="lazy"/>
               <div class="placeholder-info">
-                <h3>Checken — Flirtkort</h3>
-                <p>Ett häfte med checkar att riva av och lämna till vem du vill flirta lite med.</p>
+                <h3>Checken<br/>Flirtkort</h3>
+                <p>Ett häfte med checkar att riva av och lämna till vem du vill checka in.</p>
                 <!-- ÄNDRA: Pris -->
                 <p class="price">149 kr</p>
-                <p class="shop-note"><em>Webshop laddas här — klistra in Kwikk-koden i div#kwikk-embed</em></p>
+                <p class="shop-note">Webshop kopplas här — klistra in Kwikk-koden i div#kwikk-embed</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- SLUT KWIKK PLACEHOLDER -->
+        <!-- SLUT KWIKK -->
 
       </div>
-      <div class="perforation" aria-hidden="true"></div>
     </section>
 
-    <!-- ============================================================
-      OM OSS
-      ÄNDRA: Text om grundarna
-    ============================================================ -->
+    <!-- OM OSS -->
     <section class="about" id="om-oss" aria-labelledby="about-title">
-      <div class="container about-inner">
-        <div class="about-img">
-          <img src="images/checken-grundarna.jpeg" alt="Grundarna bakom Checken håller upp flirtkort framför sina ögon" width="600" height="750" loading="lazy"/>
-        </div>
-        <div class="about-text">
-          <h2 id="about-title">Bakom checken</h2>
-          <!-- ÄNDRA: Er historia -->
-          <p>Vi är två donnor som tröttnade på att scrolla förbi människor vi faktiskt ville träffa på riktigt.</p>
-          <p>Checken föddes ur en enkel tanke: vad om man kunde ge någon en lapp — precis som man gjorde som barn — men lite snyggare och lite modigare?</p>
-          <p>Nu är vi Sveriges enda flirtkort. Och vi hoppas att du törs använda det.</p>
-          <!-- ÄNDRA: Grundarnamn -->
-          <p class="founders">— <em>Grundarna av Checken</em></p>
+      <div class="container">
+        <div class="about-inner fade-in">
+          <div class="about-img">
+            <img src="images/checken-grundarna.jpeg" alt="Grundarna bakom Checken håller upp flirtkort framför sina ögon" width="600" height="750" loading="lazy"/>
+          </div>
+          <div class="about-text">
+            <p class="section-eyebrow">Bakom checken</p>
+            <h2 class="display" id="about-title">Idén<br/>bakom lappen.</h2>
+            <!-- ÄNDRA: Er historia -->
+            <p>Vi är två donnor som tröttnade på att scrolla förbi människor vi faktiskt ville träffa på riktigt.</p>
+            <p>Checken föddes ur en enkel tanke: vad om man kunde ge någon en lapp — precis som man gjorde som barn — men lite snyggare och lite modigare?</p>
+            <p>Nu är vi Sveriges enda flirtkort. Och vi hoppas att du törs använda det.</p>
+            <!-- ÄNDRA: Grundarnamn -->
+            <p class="founders">— Grundarna av Checken</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-      BILDGALLERI / SOCIAL PROOF
-    ============================================================ -->
+    <!-- GALLERI -->
     <section class="gallery" aria-label="Checken i verkligheten">
-      <div class="perforation" aria-hidden="true"></div>
+      <div class="perforation perforation--red" aria-hidden="true"></div>
       <div class="container">
-        <h2>Checken — in action</h2>
         <div class="gallery-grid">
           <figure>
             <img src="images/checken-closeup-hand-2.jpeg" alt="Checken hålls upp på en gata i Stockholm" width="400" height="500" loading="lazy"/>
@@ -293,31 +235,26 @@
           </figure>
         </div>
       </div>
-      <div class="perforation" aria-hidden="true"></div>
+      <div class="perforation perforation--red" aria-hidden="true"></div>
     </section>
 
-    <!-- ============================================================
-      CTA-SEKTION
-      ÄNDRA: Rubrik och knapptext
-    ============================================================ -->
-    <section class="cta-section" aria-label="Uppmaning att köpa">
+    <!-- CTA -->
+    <section class="cta-section" aria-label="Köp Checken">
       <div class="container">
         <h2>Törs du?</h2>
-        <p>Det värsta som kan hända är att de säger nej. Det bästa? Det vet du redan.</p>
+        <p>Det värsta som kan hända är att de säger nej.<br/>Det bästa? Det vet du redan.</p>
         <a href="#kop" class="btn-primary">Köp Checken nu</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ============================================================
-    FOOTER
-    ÄNDRA: E-post, sociala medier-länk, adress
-  ============================================================ -->
+  <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-inner container">
       <div class="footer-brand">
-        <span class="footer-logo">CHECKEN</span>
+        <img src="images/logo-rod.svg" alt="Checken" class="footer-logo-img" loading="lazy"/>
+        <!-- ÄNDRA: Tagline -->
         <p>Sveriges enda flirtkort.<br/>Riv av &amp; lämna. Enkelt.</p>
       </div>
       <nav class="footer-links" aria-label="Sidfotslänkar">
@@ -329,15 +266,15 @@
         </ul>
       </nav>
       <div class="footer-social">
-        <!-- ÄNDRA: Rätt Instagram-länk -->
+        <!-- ÄNDRA: Instagram-länk -->
         <a href="https://www.instagram.com/checken.se" target="_blank" rel="noopener noreferrer" aria-label="Checken på Instagram">Instagram</a>
-        <!-- ÄNDRA: E-postadress -->
+        <!-- ÄNDRA: E-post -->
         <a href="mailto:hej@checken.se">hej@checken.se</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <!-- ÄNDRA: Organisationsnummer -->
-      <p>© <span id="year"></span> Checken AB · Org.nr XXXXXX-XXXX · <a href="pages/integritetspolicy.html">Integritetspolicy</a></p>
+      <!-- ÄNDRA: Org.nr -->
+      <p>© <span id="year"></span> Checken AB &nbsp;·&nbsp; Org.nr XXXXXX-XXXX &nbsp;·&nbsp; <a href="pages/integritetspolicy.html">Integritetspolicy</a></p>
     </div>
   </footer>
 

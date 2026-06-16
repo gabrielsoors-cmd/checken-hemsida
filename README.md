@@ -1,5 +1,31 @@
 # Checken — Hemsida
 
+## Ladda upp bilder till GitHub (viktigt!)
+
+Bilderna finns inte automatiskt på GitHub — du behöver ladda upp dem manuellt.
+
+**Steg för steg:**
+1. Gå till ditt GitHub-repo
+2. Klicka på mappen `images/`
+3. Klicka på "Add file" → "Upload files"
+4. Ladda upp dessa filer med **exakt dessa namn** (skiftlägeskänsliga!):
+
+| Filnamn | Används på |
+|---|---|
+| `checken-closeup-1.jpeg` | Steg 1 (hur det funkar) |
+| `checken-closeup-hand.jpeg` | Steg 3 (hur det funkar) |
+| `checken-closeup-hand-2.jpeg` | Galleri |
+| `checken-closeup-kamera.jpeg` | Shop + galleri |
+| `checken-distans-overview.jpeg` | Galleri |
+| `checken-grundarna.jpeg` | Om oss |
+| `checken-in-action.jpeg` | Hero + steg 2 |
+| `og-image.jpg` | Delning på sociala medier (skapa en 1200×630px bild) |
+| `favicon.svg` | Fliken i webbläsaren |
+
+5. Klicka "Commit changes" — bilderna är live direkt!
+
+---
+
 ## Filstruktur
 
 ```
