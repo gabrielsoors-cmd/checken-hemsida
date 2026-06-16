@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Checken</title>
+  <meta name="description" content="Kontakta Checken – Sveriges enda flirtkort. Vi svarar så snabbt vi kan." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.checken.se/pages/kontakt.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .contact-page { padding-top: 140px; padding-bottom: 80px; }
+    .contact-page h1 { font-family: var(--font-display); font-size: var(--text-4xl); margin-bottom: var(--space-xs); }
+    .contact-page .intro { color: var(--color-text-muted); font-size: var(--text-lg); margin-bottom: var(--space-lg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
+    .contact-form { display: flex; flex-direction: column; gap: var(--space-sm); }
+    label { font-size: var(--text-sm); color: var(--color-text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.25rem; display: block; }
+    input, textarea {
+      width: 100%;
+      background: rgba(245,240,232,0.05);
+      border: 1px solid rgba(245,240,232,0.15);
+      border-radius: 4px;
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    input:focus, textarea:focus { border-color: var(--color-accent); }
+    textarea { resize: vertical; min-height: 150px; }
+    .form-group { display: flex; flex-direction: column; }
+    .contact-info h2 { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-accent); margin-bottom: var(--space-sm); }
+    .contact-info p { color: var(--color-text-muted); margin-bottom: var(--space-xs); }
+    .contact-info a { color: var(--color-text-muted); }
+    .contact-info a:hover { color: var(--color-accent); }
+    .back-link { display: inline-block; margin-bottom: var(--space-md); color: var(--color-accent); font-size: var(--text-sm); }
+    .form-success { display: none; background: rgba(201,168,124,0.1); border: 1px solid var(--color-accent); border-radius: 4px; padding: var(--space-sm); color: var(--color-accent); margin-top: var(--space-sm); }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <!-- Google Analytics — ÄNDRA ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+  <header class="navbar" role="banner">
+    <a href="/" class="navbar-logo" aria-label="Checken – hem"><span>CHECKEN</span></a>
+    <nav role="navigation" aria-label="Huvudnavigation">
+      <ul>
+        <li><a href="/#hur-det-funkar">Hur det funkar</a></li>
+        <li><a href="/#kop">Köp</a></li>
+        <li><a href="/#om-oss">Om oss</a></li>
+        <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-page">
+    <div class="container">
+      <a href="/" class="back-link">← Tillbaka</a>
+      <h1>Säg hej!</h1>
+      <!-- ÄNDRA: Intro-text -->
+      <p class="intro">Frågor om beställningar, samarbeten eller bara vill prata? Vi svarar så snabbt vi kan.</p>
+
+      <div class="contact-grid">
+        <!-- Kontaktformulär — koppla till en tjänst som Formspree eller liknande -->
+        <!-- ÄNDRA: action-URL till er formulärtjänst, t.ex. https://formspree.io/f/XXXXXXX -->
+        <form class="contact-form" id="contact-form" action="#" method="POST" novalidate>
+          <div class="form-group">
+            <label for="name">Ditt namn</label>
+            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Vad heter du?" />
+          </div>
+          <div class="form-group">
+            <label for="email">E-post</label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="din@email.se" />
+          </div>
+          <div class="form-group">
+            <label for="message">Meddelande</label>
+            <textarea id="message" name="message" required placeholder="Vad undrar du?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Skicka meddelande</button>
+          <div class="form-success" id="form-success" role="alert">
+            Tack för ditt meddelande! Vi återkommer snart.
+          </div>
+        </form>
+
+        <div class="contact-info">
+          <h2>Direktkontakt</h2>
+          <!-- ÄNDRA: E-post och Instagram -->
+          <p>E-post: <a href="mailto:hej@checken.se">hej@checken.se</a></p>
+          <p>Instagram: <a href="https://www.instagram.com/checken.se" target="_blank" rel="noopener">@checken.se</a></p>
+          <br/>
+          <h2>Svarstid</h2>
+          <p>Vi svarar normalt inom 1–2 arbetsdagar.</p>
+          <br/>
+          <h2>Juridisk info</h2>
+          <!-- ÄNDRA: Org.nr -->
+          <p>Checken AB · Org.nr: XXXXXX-XXXX</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-bottom">
+      <p>© <script>document.write(new Date().getFullYear())</script> Checken AB · <a href="integritetspolicy.html">Integritetspolicy</a> · <a href="cookiepolicy.html">Cookies</a> · <a href="kopvillkor.html">Köpvillkor</a></p>
+    </div>
+  </footer>
+
+  <script>
+    /* Enkelt formulärskydd + feedback */
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      /* ÄNDRA: Om ni använder Formspree, ta bort e.preventDefault() och låt formuläret skickas */
+      document.getElementById('form-success').style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

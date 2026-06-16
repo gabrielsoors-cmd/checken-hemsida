@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /pages/integritetspolicy.html
+Disallow: /pages/cookiepolicy.html
+Disallow: /pages/kopvillkor.html
+
+Sitemap: https://www.checken.se/sitemap.xml
