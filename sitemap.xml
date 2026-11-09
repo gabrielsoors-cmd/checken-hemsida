@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- ÄNDRA: Uppdatera lastmod-datum när sidan uppdateras -->
-
+  <!-- Uppdatera lastmod när en sida ändras. Policysidorna är noindex och ligger därför inte här. -->
   <url>
-    <loc>https://www.checken.se/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://checken.se/</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://www.checken.se/pages/kontakt.html</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://checken.se/pages/kontakt.html</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
 </urlset>
