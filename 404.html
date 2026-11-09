@@ -5,62 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sidan hittades inte – Checken</title>
   <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#f8f4ed" />
+  <base href="/" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .error-page {
-      min-height: 100svh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: var(--space-lg) var(--space-md);
-      padding-top: 120px;
-    }
-    .error-eyes {
-      margin-bottom: var(--space-md);
-      animation: blink 3.5s ease-in-out infinite;
-    }
-    @keyframes blink {
-      0%, 88%, 100% { transform: scaleY(1); }
-      94% { transform: scaleY(0.08); }
-    }
-    .error-code {
-      font-family: var(--font-display);
-      font-size: clamp(6rem, 20vw, 12rem);
-      color: rgba(248,244,237,0.04);
-      line-height: 1;
-      display: block;
-      margin-bottom: -2rem;
-      letter-spacing: -0.02em;
-    }
-    .error-page h1 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(var(--text-3xl), 6vw, var(--text-5xl));
-      color: var(--color-cream);
-      margin-bottom: var(--space-sm);
-      line-height: 1.1;
-    }
-    .error-page p {
-      color: var(--color-cream-muted);
-      font-size: var(--text-base);
-      max-width: 380px;
-      margin-bottom: var(--space-lg);
-      line-height: 1.8;
-    }
-    .error-links { display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center; }
-  </style>
 </head>
 <body>
   <header class="navbar" role="banner">
-    <a href="index.html" class="navbar-logo" aria-label="Checken – hem">
-      <img src="images/logo-svart.svg" alt="Checken" style="height:30px;width:auto" />
+    <a href="index.html" class="navbar-logo" aria-label="Checken – gå till startsidan">
+      <img src="images/logo-svart.svg" alt="Checken" />
     </a>
   </header>
   <main>
     <div class="error-page">
       <div class="error-eyes" aria-hidden="true">
-        <img src="images/ogon-rod.svg" alt="" style="height:48px;width:auto;opacity:0.7" />
+        <img src="images/ogon-rod.svg" alt="" />
       </div>
       <span class="error-code" aria-hidden="true">404</span>
       <h1>Den här sidan<br/>hittades inte.</h1>
@@ -71,10 +32,11 @@
       </div>
     </div>
   </main>
-  <footer role="contentinfo">
+  <footer class="footer-compact" role="contentinfo">
     <div class="footer-bottom">
-      <p>© <script>document.write(new Date().getFullYear())</script> Checken AB · <a href="pages/integritetspolicy.html">Integritetspolicy</a></p>
+      <p>© <span id="year"></span> Checken &nbsp;·&nbsp; <a href="pages/integritetspolicy.html">Integritetspolicy</a></p>
     </div>
   </footer>
+  <script src="js/main.js"></script>
 </body>
 </html>
